@@ -1,52 +1,49 @@
-.botonMenu
-{
-   margin: 0 auto;
-   display: block;
-   width: 40px;
-   height: 36px;
-   padding: 10px;
-   border-radius: 7px;
-   background: #666;
-   color: white;
-   cursor: pointer;
+body {
+   background-color: rgb(32, 189, 176);
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+ }
+ 
+ .menu-container {
    position: relative;
-}
-
-.botonMenu span
-{
-   display: block;
-   width: 40px;
-   height: 4px;
-   background: white;
-   margin-top: 7px;
-}
-
-label
-{
-   cursor: pointer;
-}
-
-#menu-toggle
-{
-   display: none;
-}
-
-#trickMenu
-{
-   display: none;
+   width: 200px;
+   background-color: #fcfcfc;
+   border: 2px solid #d1d1d1;
+ }
+ 
+ .menu-header {
+   background-color: #20cd2b;
+   color: rgb(7, 1, 1);
+   padding: 15px;
    text-align: center;
-   background: white;
-   padding: 10px 0;
-}
-
-#trickMenu li a
-{
+   cursor: pointer;
+   font-size: 18px;
+   font-weight: bold;
+ }
+ 
+ .menu-items {
+   display: none;
+   background-color: #9ee313;
+   border-top: 1px solid #d1d1d1;
+ }
+ 
+ .menu-items a {
    display: block;
-   padding: 10px 0;
-   color: black;
-}
-
-#menu-toggle:checked + #trickMenu
-{
+   padding: 10px 15px;
+   color: #333;
+   text-decoration: none;
+   border-bottom: 1px solid #eaeaea;
+   font-size: 16px;
+ }
+ 
+ .menu-items a:hover {
+   background-color: #f9f9f9;
+ }
+ 
+ .menu-container:hover .menu-items {
    display: block;
-}
+ }
