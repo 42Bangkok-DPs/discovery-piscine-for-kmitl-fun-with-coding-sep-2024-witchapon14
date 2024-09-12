@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+<body>
+    <h1>Basic Calculator</h1>
+
+    <label for="leftMember">Left Member: </label>
+    <input type="number" id="leftMember" min="0" placeholder="0">
+
+    <label for="operator">Operator: </label>
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <label for="rightMember">Right Member: </label>
+    <input type="number" id="rightMember" min="0" placeholder="0">
+    <input type="button" value="Try me!" onclick="calculate()">
+
+    <script>
+        function calculate() {
+            const leftMember = document.getElementById('leftMember').value;
+            const operator = document.getElementById('operator').value;
+            const rightMember = document.getElementById('rightMember').value;
+
+            if (leftMember === '' || rightMember === '' || leftMember < 0 || rightMember < 0) {
+                alert('Error :(');
+                return;
+            }
+            
+            const left = parseInt(leftMember);
+            const right = parseInt(rightMember);
+
+            let result;
+            try {
+                switch (operator) {
+                    case '+':
+                        result = left + right;
+                        break;
+                    case '-':
+                        result = left - right;
+                        break;
+                    case '*':
+                        result = left * right;
+                        break;
+                    case '/':
+                        if (right === 0) throw "It’s over 9000!";
+                        result = left / right;
+                        break;
+                    case '%':
+                        if (right === 0) throw "It’s over 9000!";
+                        result = left % right;
+                        break;
+                    default:
+                        throw 'Error :(';
+                }
+                alert(`Result: ${result}`);
+                console.log(`Result: ${result}`);
+            } catch (error) {
+                alert(error);
+                console.log(error);
+            }
+        }
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000); 
+    </script>
+</body>
+</html>
