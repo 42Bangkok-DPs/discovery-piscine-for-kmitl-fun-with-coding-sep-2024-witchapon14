@@ -1,0 +1,266 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace; /* ใช้ฟอนต์ที่ดูเป็นดิจิทัล */
+    background-color: #19133b; /* พื้นหลังสีมืด */
+    color: #ffffff; /* สีข้อความเขียวมะนาว */
+    overflow: auto;
+}
+.hero-section {
+    text-align: center;
+    padding: 100px 0;
+    z-index: 10;
+    position: relative;
+}
+
+.members {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px;
+    z-index: 10;
+    position: relative;
+}
+
+/* ปรับแต่ง member-card */
+.member-card {
+    background-color: rgba(0, 0, 0, 0.8); /* พื้นหลังสีดำโปร่งใส */
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    border: 2px solid #00bcd4; /* เพิ่มขอบสีฟ้าอ่อน */
+    box-shadow: 0px 0px 15px 5px rgba(0, 188, 212, 0.5); /* เพิ่มเงาสีฟ้าอ่อน */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มเอฟเฟกต์ hover */
+}
+/* Main styles for navigation bar */
+.navbar {
+    background: linear-gradient(45deg, #4c7caf, #1a1064); /* Gradient background */
+    padding: 15px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 70px; /* ลดความสูงของ navbar */
+    transition: height 0.3s ease;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* จัดลิงก์ให้อยู่แนวนอน */
+    flex-wrap: wrap; /* ช่วยให้ลิงก์จัดเรียงตามความกว้างของหน้าจอ */
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+.navbar a {
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ของลิงก์ */
+}
+
+.navbar a:hover {
+    background-color: #ffffff;
+    color: #2b5486;
+    border-radius: 5px;
+}
+
+.navbar .navbar-brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto; /* ให้ navbar ยืดตามเนื้อหา */
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column; /* จัดลิงก์ในแนวตั้งสำหรับหน้าจอเล็ก */
+        width: 100%; /* ให้ลิงก์ใช้ความกว้างเต็ม */
+        align-items: center;
+    }
+
+    .navbar li {
+        margin-left: 0;
+        margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างลิงก์ */
+    }
+
+    .navbar a {
+        padding: 8px 15px; /* ลด padding ของลิงก์ */
+        font-size: 16px; /* ลดขนาดฟอนต์ของลิงก์ */
+        width: 100%; /* ให้ลิงก์มีความกว้าง 100% */
+        text-align: center; /* จัดข้อความในลิงก์ให้อยู่ตรงกลาง */
+    }
+
+    .navbar .navbar-brand {
+        font-size: 20px; /* ลดขนาดฟอนต์ของแบรนด์ */
+        margin-bottom: 10px; /* เพิ่มช่องว่างระหว่างแบรนด์กับลิงก์ */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 5px; /* ลด padding ของ navbar ให้เล็กลง */
+    }
+
+    .navbar a {
+        font-size: 14px; /* ลดขนาดฟอนต์ของลิงก์ให้เล็กลง */
+        padding: 6px 10px; /* ลด padding */
+    }
+
+    .navbar .navbar-brand {
+        font-size: 18px; /* ลดขนาดฟอนต์ของแบรนด์ให้เล็กลง */
+    }
+}
+/* Hover Effect for Member Card */
+.member-card:hover {
+    transform: scale(1.05); /* ขยายขนาดการ์ดเล็กน้อยเมื่อ hover */
+    box-shadow: 0px 0px 20px 10px rgba(0, 188, 212, 0.8); /* เงาสีฟ้าเข้มขึ้น */
+}
+
+.member-card img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    border: 3px solid #ff9800; /* ขอบรูปสีส้มอ่อน */
+}
+
+.member-card h2 {
+    margin: 20px 0;
+    color: #00bcd4; /* สีฟ้าตัดกับพื้นหลังดำ */
+}
+
+.member-card p {
+    color: #ffeb3b; /* สีเหลืองอ่อนสำหรับข้อความภายในการ์ด */
+}
+
+.member-card a {
+    text-decoration: none;
+    color: #ff9800; /* สีส้มสำหรับลิงก์ */
+    font-weight: bold;
+    border: 2px solid #ff9800;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.member-card a:hover {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Particle container */
+#particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    opacity: 0.8;
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(100vh) translateX(100vw);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .member-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsive adjustments for screens smaller than 768px */
+@media (max-width: 768px) {
+    .members {
+        flex-direction: column; /* ปรับให้การ์ดเรียงในแนวตั้ง */
+        align-items: center;
+    }
+
+    .member-card {
+        width: 80%; /* ปรับให้การ์ดมีความกว้าง 80% */
+        margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างการ์ด */
+    }
+
+    .hero-section {
+        padding: 60px 0; /* ลด padding ใน hero section */
+    }
+}
+
+/* Responsive adjustments for screens smaller than 480px */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 5px; /* ลด padding ของ navbar */
+        height: 60px; /* ลดความสูงของ navbar */
+    }
+
+    .navbar .navbar-brand {
+        font-size: 18px; /* ลดขนาดฟอนต์ของแบรนด์ */
+    }
+
+    .navbar a {
+        font-size: 14px; /* ลดขนาดฟอนต์ของลิงก์ */
+        padding: 5px 10px; /* ลด padding ของลิงก์ */
+    }
+
+    .member-card {
+        width: 90%; /* ลดขนาดการ์ดสำหรับหน้าจอที่แคบมาก */
+    }
+
+    .member-card img {
+        width: 120px; /* ลดขนาดรูปภาพสมาชิก */
+        height: 120px;
+    }
+
+    .hero-section {
+        padding: 40px 0; /* ลด padding ใน hero section สำหรับหน้าจอที่แคบมาก */
+    }
+}
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the canvas is behind other content */
+}

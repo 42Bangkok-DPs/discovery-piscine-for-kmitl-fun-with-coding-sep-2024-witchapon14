@@ -1,0 +1,258 @@
+/* Reset styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace; /* ใช้ฟอนต์ที่ดูเป็นดิจิทัล */
+    background-color: #19133b; /* พื้นหลังสีมืด */
+    color: #ffffff; /* สีข้อความเขียวมะนาว */
+    overflow: auto;
+}
+
+h1, h2, h3 {
+    color: #00bcd4; /* ข้อความหัวข้อสีฟ้า */
+    text-align: center;
+}
+/* ปรับแต่ง navigation bar ให้เป็นแนวนอน */
+.navbar {
+    background: linear-gradient(45deg, #4c7caf, #1a07a5); /* Gradient background */
+    padding: 15px 10px; /* เพิ่ม padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 70px; /* ลดความสูงของ navbar */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* จัดลิงก์ให้อยู่แนวนอน */
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+.navbar a {
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #ffffff; /* White background on hover */
+    color: #2b5486; /* Green text color on hover */
+    border-radius: 5px;
+}
+
+.navbar .navbar-brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff; /* White text color */
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar a {
+        display: block;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar a {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 20px;
+    }
+}
+
+/* Custom Navbar Styles */
+.navbar-custom {
+    background-color: #2a9d8f; /* Green color */
+}
+.navbar-custom .navbar-brand {
+    color: #ffffff; /* White text for brand */
+    font-weight: bold; /* Make brand name bold */
+}
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff; /* White text for links */
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #e9c46a; /* Light yellow on hover */
+}
+
+
+/* Custom Navbar Styles */
+.navbar-custom {
+    background-color: #2a9d8f; /* Green color */
+}
+.navbar-custom .navbar-brand {
+    color: #ffffff; /* White text for brand */
+    font-weight: bold; /* Make brand name bold */
+}
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff; /* White text for links */
+}
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #e9c46a; /* Light yellow on hover */
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.profile img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 8px rgba(0, 188, 212, 0.5); /* เงาสีฟ้าอ่อน */
+    border: 3px solid #ff9800; /* ขอบสีส้ม */
+}
+
+.profile h2 {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #00bcd4; /* สีฟ้าสำหรับชื่อ */
+}
+
+.profile p {
+    margin-top: 10px;
+    color: #ffeb3b; /* สีเหลืองสำหรับรายละเอียด */
+}
+
+/* Tech Stack Section */
+#tech-stack {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #333; /* พื้นหลังสีเทาเข้ม */
+    box-shadow: 0px 4px 8px rgba(0, 188, 212, 0.5); /* เงาสีฟ้า */
+    border-radius: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ */
+    gap: 20px;
+}
+
+.category {
+    background-color: rgba(0, 0, 0, 0.8); /* สีพื้นหลังดำโปร่งใส */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #00bcd4; /* ขอบสีฟ้า */
+}
+
+.category h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00bcd4; /* สีฟ้า */
+}
+
+.tech-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.tech-icon i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: white; /* สีไอคอนสีขาว */
+}
+
+.tech-icon span {
+    font-size: 16px;
+    color: #ffeb3b; /* สีเหลืองสำหรับชื่อไอคอน */
+}
+
+/* Star animation */
+#stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF;
+    animation: animStar 50s linear infinite;
+}
+
+#stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF;
+    animation: animStar 100s linear infinite;
+}
+
+#stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 1744px 122px #FFF , 134px 1321px #FFF , 92px 859px #FFF;
+    animation: animStar 150s linear infinite;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure the canvas is behind other content */
+}
