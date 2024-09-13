@@ -32,7 +32,9 @@ $(document).ready(function() {
         const todos = $ftList.children().map(function() {
             return $(this).text();
         }).get();
-        document.cookie = `todos=${JSON.stringify(todos)}; path=/;`;
+        const expires = new Date();
+        expires.setTime(expires.getTime() + (7 * 24 * 60 * 60 * 1000)); // คุกกี้หมดอายุใน 7 วัน
+        document.cookie = `todos=${JSON.stringify(todos)}; expires=${expires.toUTCString()}; path=/; SameSite=Lax;`;
     }
 
     // Load todos from cookies
