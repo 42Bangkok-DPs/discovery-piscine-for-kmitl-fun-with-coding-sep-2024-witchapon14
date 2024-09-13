@@ -18,9 +18,14 @@
                     alert('Error :(');
                     return;
                 }
-
-                const left = parseFloat(leftMember);
-                const right = parseFloat(rightMember);
+                if (!Number.isInteger(leftMember) || !Number.isInteger(rightMember) || leftMember.trim() === '' || rightMember.trim() === '') {
+                    console.log('Error :(');
+                    alert('Error :(');
+                    return;
+                }
+                const left = parseInt(leftMember);
+                const right = parseInt(rightMember);
+                
                 if (left < 0 || right < 0) {
                     alert("Error :( ");
                     console.log(`Error`);
