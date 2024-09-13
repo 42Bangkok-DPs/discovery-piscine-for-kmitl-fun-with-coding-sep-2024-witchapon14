@@ -1,56 +1,52 @@
-function addItem(){
-	var text=document.getElementById('objective').value;
-	if(text.length>0){
-		var list = new Date();
-		setCookie('obj'+list.getTime(),encodeURIComponent(text));
-		addListItem('obj'+list.getTime(),text);
-		document.getElementById('objective').value='';
-	}
-	prompt ("This is a prompt box", "Add to the list");  
-	function enter(e, input){
-	var code = (e.keyCode ? e.keyCode : e.which);
-	if(code == 13) {
-		addItem();
-	}
-}
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const ftList = document.getElementById('ft_list');
+    const newButton = document.getElementById('New');
 
-function setCookie(sName, sValue){
-	document.cookie = sName + '=' + escape(sValue);
-	var date = new Date();
-	date.setMonth(date.getYear()+1);
-	document.cookie += ('; expires=' + date.toUTCString()); 
-}
+    // Load saved todos from cookies
+    loadTodos();
 
-function unsetCookie(sName){
-	document.cookie = sName + '=; expires=Fri, 31 Dec 1999 23:59:59 GMT;';
-}
+    // Handle new todo creation
+    newButton.addEventListener('click', function() {
+        const todo = prompt('Create a new TO DO:');
+        if (todo && todo.trim() !== '') {
+            addTodo(todo);
+            saveTodos();
+        }
+    });
 
-function checkForObjectives(){
-	var list=document.getElementById('list');
-	var cookies = document.cookie.split('; ');
-	cookies.sort();
-	for (var i=0; i < cookies.length; i++){
-		var part = cookies[i].split('=');
-		if(part[0].indexOf('obj')===0){
-		try{
-			addListItem(part[0],decodeURI(decodeURI(part[1])));
-			}
-			catch(error){
-				console.log(error.message+' '+part[1]);
-			}
-		}
-	}
-}
+    // Add a new todo element
+    function addTodo(todo) {
+        const todoDiv = document.createElement('div');
+        todoDiv.className = 'item';
+        todoDiv.textContent = todo;
 
-function addListItem(id,text){
-	var list = document.getElementById('list');
-	list.innerHTML+='<li id='+id+'>'+text+' <button onclick="deleteItem(\''+id+'\')">X</button></li>';
-}
+        // Add click event to remove todo
+        todoDiv.addEventListener('click', function() {
+            if (confirm('Do you want to remove this TO DO?')) {
+                todoDiv.remove();
+                saveTodos();
+            }
+        });
 
-function deleteItem(id){
-if (confirm("Do you want to delete it?"))
-{
-  document.getElementById(id).style.display='none';
-	  unsetCookie(id);
-}}
+        // Add the todo to the top of the list
+        ftList.insertBefore(todoDiv, ftList.firstChild);
+    }
+
+    // Save todos to cookies
+    function saveTodos() {
+        const todos = Array.from(ftList.children).map(function(item) {
+            return item.textContent;
+        });
+        document.cookie = `todos=${JSON.stringify(todos)}; path=/;`;
+    }
+
+    // Load todos from cookies
+    function loadTodos() {
+        const cookies = document.cookie.split('; ');
+        const todoCookie = cookies.find(cookie => cookie.startsWith('todos='));
+        if (todoCookie) {
+            const todos = JSON.parse(todoCookie.split('=')[1]);
+            todos.forEach(addTodo);
+        }
+    }
+});

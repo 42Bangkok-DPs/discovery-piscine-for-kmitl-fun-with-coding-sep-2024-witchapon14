@@ -34,13 +34,11 @@
         if (size < 420) {
             size += 10;
         } else {
-            size = 200; // Reset if size goes over 420px
+            size = 200; 
         }
         colorIndex = (colorIndex + 1) % colors.length;
         updateBalloon();
     });
-
-    // Handle mouse leave event to shrink the balloon and change its color
     balloon.addEventListener('mouseleave', () => {
         if (size > 200) {
             size -= 5;
@@ -48,8 +46,6 @@
         colorIndex = (colorIndex - 1 + colors.length) % colors.length;
         updateBalloon();
     });
-
-    // Update balloon size and color
     function updateBalloon() {
         balloon.style.width = size + 'px';
         balloon.style.height = size + 'px';

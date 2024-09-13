@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="background.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <button id="changeColorButton">Click me!</button>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#changeColorButton').click(function(){
+            $('body').css('background-color', 'rgb(' + Math.round(Math.random() * 255) +
+                ',' + Math.round(Math.random() * 255) +
+                ',' + Math.round(Math.random() * 255) + ')');
+        });
+    });
+</script>
+</html>
