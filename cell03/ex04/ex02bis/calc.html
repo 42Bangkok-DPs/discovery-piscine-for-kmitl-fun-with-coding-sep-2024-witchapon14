@@ -11,20 +11,16 @@
                 const leftMember = $('#leftMember').val();
                 const operator = $('#operator').val();
                 const rightMember = $('#rightMember').val();
+                const leftValue = parseFloat(leftMember);
+                const rightValue = parseFloat(rightMember);
 
-                // Check if inputs are valid numbers
-                if (isNaN(leftMember) || isNaN(rightMember) || leftMember.trim() === '' || rightMember.trim() === '') {
-                    console.log(`Error`);
+                if (leftValue !== parseInt(leftMember, 10) || rightValue !== parseInt(rightMember, 10)) {
+                    console.log(`Error :(`);
                     alert('Error :(');
                     return;
                 }
-                if (!Number.isInteger(leftMember) || !Number.isInteger(rightMember) || leftMember.trim() === '' || rightMember.trim() === '') {
-                    console.log('Error :(');
-                    alert('Error :(');
-                    return;
-                }
-                const left = parseInt(leftMember);
-                const right = parseInt(rightMember);
+                const left = parseFloat(leftMember);
+                const right = parseFloat(rightMember);
                 
                 if (left < 0 || right < 0) {
                     alert("Error :( ");
