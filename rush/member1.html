@@ -18,6 +18,20 @@
             font-style: italic;
             padding: 5px;
         }
+        .carousel {  
+            overflow: hidden;  
+            white-space: nowrap;  
+        }  
+        .carousel img {  
+            display: inline-block;  
+            width: 300px; /* Adjust size as needed */  
+            margin-right: 10px;  
+            cursor: pointer; /* Change cursor on hover */  
+            transition: transform 0.3s; /* Smooth zoom effect */  
+        }  
+        .carousel img:hover {  
+            transform: scale(1.05); /* Slight zoom on hover */  
+         }  
     </style>
 </head>
 <body>
@@ -67,7 +81,38 @@
             </a>
         </div>
     </section>
-
+    <h1 class="text-3xl font-bold mb-5">Activiy and Certificate</h1>  
+    <div class="carousel">  
+        <a href="https://www.facebook.com/photo?fbid=917194687113530&set=pcb.917194883780177" target="_blank">  
+            <img src="https://scontent.fbkk22-1.fna.fbcdn.net/v/t39.30808-6/457325738_916928757140123_3718144679311097188_n.jpg?stp=cp6_dst-jpg_s1080x2048&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHjCyQCirvD_wuJJ06Wu0Zl-rVLwMiolKD6tUvAyKiUoGpZIjETEIfaSIQ4q5fMS2kyt4pY4If2bIlTbCvo6JjR&_nc_ohc=w1qsvENlhR4Q7kNvgHDFwIv&_nc_ht=scontent.fbkk22-1.fna&oh=00_AYBKygOMDw6CcgjPu03cjzrXsw_VsVTQAuI52eLDCPsU3w&oe=66EA2F86" alt="ใบเซอร์ 5" class="rounded shadow-lg">  
+        </a>  
+        <a href="https://www.cloudskillsboost.google/public_profiles/8c6b9775-d353-48e4-afff-f9cf10efeefc" target="_blank">  
+            <img src="https://cdn.qwiklabs.com/Q4rVlxJ0wQuMfHZqcVJ4syEhU3G51bvU%2BxpjlqO91m8%3D">  
+        </a>  
+        <a href="https://www.cloudskillsboost.google/public_profiles/8c6b9775-d353-48e4-afff-f9cf10efeefc" target="_blank">  
+            <img src="https://cdn.qwiklabs.com/XtN9bsXRPu16Qi8rfkEKllJLdLJW1cCFACu6NgEjkGk%3D" alt="ใบเซอร์ 3" class="rounded shadow-lg">  
+        </a>  
+        <a href="https://www.cloudskillsboost.google/public_profiles/8c6b9775-d353-48e4-afff-f9cf10efeefc" target="_blank">  
+            <img src="https://cdn.qwiklabs.com/FZrmKh%2Fjc%2FQ0mN44JVDJJDHHZCkJ07zsjqFbuZd16h8%3D" alt="ใบเซอร์ 4" class="rounded shadow-lg">  
+        </a>  
+        <a href="https://www.cloudskillsboost.google/public_profiles/8c6b9775-d353-48e4-afff-f9cf10efeefc" target="_blank">  
+            <img src="https://cdn.qwiklabs.com/IogaVGLwAz%2Bd%2FnGGV%2BpJLZ%2BunvPScnYCL0FwVWLT%2FY0%3D" alt="ใบเซอร์ 6" class="rounded shadow-lg">  
+        </a>  
+        <a href="https://www.cloudskillsboost.google/public_profiles/8c6b9775-d353-48e4-afff-f9cf10efeefc" target="_blank">  
+            <img src="https://cdn.qwiklabs.com/Au8XmoMOOARnWkKYyMj7OPxjJA4dSh3dpK1yAmey%2B3c%3D" alt="ใบเซอร์ 7" class="rounded shadow-lg">  
+        </a>  
+    </div>  
+    <div class="mt-5">  
+        <button onclick="scrollCarousel(-1)" class="bg-blue-500 text-white px-4 py-2 rounded">เลื่อนซ้าย</button>  
+        <button onclick="scrollCarousel(1)" class="bg-blue-500 text-white px-4 py-2 rounded">เลื่อนขวา</button>  
+    </div>  
+    <script>  
+        function scrollCarousel(direction) {  
+            const carousel = document.querySelector('.carousel');  
+            const scrollAmount = direction * 320; // ปรับค่าตามขนาดของภาพ  
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });  
+        }  
+    </script>
     <!-- Tech Stack Section -->
     <section id="tech-stack">
         <h1 class="bold-text">Tech Stack Overview</h1>
